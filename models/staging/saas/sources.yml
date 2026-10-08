@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: saas
+    catalog: raw_data_saas
+    schema: default
+    tables:
+      - name: accounts
+      - name: opportunities
+          loaded_at_field: ## need a field that specifcies at which date the ETL was loaded in the table, buit im missing that in my table 
+      ##source freshness can be specified in the model itself
+      ## (i.e. if the data in opportunities changes often, it makes sense to add freshness:          
+        freshness: 
+          warn_after: 
+            count: 6
+            period: hour
+          error_after: 
+            count: 1
+            period: day
+
+ 
+      - name: contacts
+      - name: activities_with_dates
+      - name: products
+      - name: quotes
+      - name: quote_lines
+      - name: users
+
+      ##source freshness!!!
+
+
+## lorenzo is the king and data wizard
